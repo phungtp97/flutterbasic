@@ -71,7 +71,7 @@ class BlocWidget extends StatelessWidget {
       child: Container(
         child: StreamBuilder(
           initialData: Colors.red,
-          stream: blocBasic.dataStream,
+          stream: blocBasic.userObservable,
           builder: (BuildContext context, snapShot) {
             if(snapShot.hasData ){
               switch(snapShot.connectionState){
@@ -97,7 +97,7 @@ class BlocWidget extends StatelessWidget {
               }
             }
             else{
-              return Text(snapShot.data.runtimeType.toString());
+              return Text(snapShot.error.toString());
             }
           },
         ),

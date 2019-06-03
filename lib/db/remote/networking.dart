@@ -91,7 +91,7 @@ class ConnectionBuilder {
         break;
       case Type.DELETE:
         method = 'DELETE';
-        return await dio.delete(url, data: formData, options: options);
+        dio.delete(url, data: formData, options: options);
         break;
       case Type.PATCH:
         method = 'PATCH';

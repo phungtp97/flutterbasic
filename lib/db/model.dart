@@ -4,8 +4,8 @@ class User{
 
   User({this.id, this.password});
 
-  User.fromMap(Map<String, dynamic> json) {
-    this.id = json['id'];
-    this.password = json['password'];
-  }
+  factory User.fromMap(Map<String, dynamic> json) => User(
+    id : json['id'],
+    password : json['password']
+  );
 }
