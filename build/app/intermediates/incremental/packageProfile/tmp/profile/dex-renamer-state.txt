@@ -1,0 +1,4 @@
+#Mon Jun 03 09:53:56 ICT 2019
+base.0=/Users/macintoshhd/Downloads/flutterbasic/build/app/intermediates/transforms/dexMerger/profile/0
+path.0=classes.dex
+renamed.0=classes.dex
