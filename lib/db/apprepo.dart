@@ -11,7 +11,6 @@ import 'package:dio/dio.dart';
  */
 
 class AppRepo implements RepoApi {
-  Dio _dio = new Dio();
 
   @override
   Future<Response> getUser() async {

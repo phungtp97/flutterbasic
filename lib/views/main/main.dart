@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbasic/base/basebloc.dart';
 import 'package:flutterbasic/db/model.dart';
 import 'package:flutterbasic/ui/resource/color.dart';
-import 'package:flutterbasic/views/testblocbasic.dart';
+import 'package:flutterbasic/views/main/testblocbasic.dart';
 
 // ignore: slash_for_doc_comments
 /**
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Basic'),
     );
   }
 }
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {},
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
@@ -73,12 +73,27 @@ class BlocWidget extends StatelessWidget {
           initialData: Colors.red,
           stream: blocBasic.dataStream,
           builder: (BuildContext context, snapShot) {
-            if(snapShot.hasData){
-              if(snapShot.data is User) {
-                return Text((snapShot.data as User).id);
-              }
-              else{
-                return Text("Click to get User");
+            if(snapShot.hasData ){
+              switch(snapShot.connectionState){
+                case ConnectionState.none:
+                  return Text("");
+                  break;
+                case ConnectionState.done:
+                  return Text("");
+                  break;
+                case ConnectionState.waiting:
+                  return Text("Click to call User");
+                  break;
+                case ConnectionState.active:
+                  if(snapShot.data is User) {
+                    return Text((snapShot.data as User).id);
+                  }
+                  else{
+                    return Text("Api data error");
+                  }
+                  break;
+                default:
+                  return Text((snapShot.data as User).id);
               }
             }
             else{

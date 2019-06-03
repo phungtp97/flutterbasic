@@ -1,4 +1,4 @@
-#Mon Jun 03 11:25:10 ICT 2019
+#Mon Jun 03 11:50:18 ICT 2019
 base.0=/Users/macintoshhd/Downloads/testflutter/build/app/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
