@@ -10,7 +10,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="flutterbasic"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/ic_hazelnut">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -18,6 +18,7 @@ class BlocBasic extends BlocBase {
   }
   Observable<User> get userObservable => _getStream.stream;
 
+
   @override
   void dispose() {
     _getStream.close();

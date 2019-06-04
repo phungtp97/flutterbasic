@@ -9,4 +9,5 @@ import 'package:dio/dio.dart';
 
 abstract class RepoApi{
   Future<Response> getUser();
+  Future<Response> getChatList();
 }

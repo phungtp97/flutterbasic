@@ -22,4 +22,15 @@ class AppRepo implements RepoApi {
         .objectObserve();
     return response;
   }
+
+  @override
+  Future<Response> getChatList() async {
+    Response response = await LecleNetworking.get(ApiEndPoint.SAMPLE_USER_API)
+        .addQueryParameter("samplepath", "bUlafmCZlu")
+        .addPathParameter("indent", "2")
+        .setContentType("application/json")
+        .build()
+        .objectObserve();
+    return response;
+  }
 }

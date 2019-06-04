@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutterbasic/base/basebloc.dart';
 import 'package:flutterbasic/db/model.dart';
 import 'package:flutterbasic/ui/resource/color.dart';
+import 'package:flutterbasic/views/inherit/inherit.dart';
+import 'package:flutterbasic/views/inherit2/inherit.dart';
 import 'package:flutterbasic/views/main/testblocbasic.dart';
 
 // ignore: slash_for_doc_comments
@@ -46,7 +48,21 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BlocProvider(bloc: BlocBasic(), child: BlocWidget())
+            BlocProvider(bloc: BlocBasic(), child: BlocWidget()),
+            FlatButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Inherit2(
+                  );
+                }));
+              },
+              child: Container(child:
+                Text('Demo Bloc with inheritedWidget')
+              ),
+              highlightColor: ResourceColor.primary,
+              splashColor: ResourceColor.darkPrimary,
+              padding: EdgeInsets.all(10),
+            )
           ],
         ),
       ),
@@ -64,13 +80,13 @@ class BlocWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     BlocBasic blocBasic = BlocProvider.of(context);
+
     return FlatButton(
       onPressed: () {
         blocBasic.getSampleUser();
       },
       child: Container(
         child: StreamBuilder(
-          initialData: Colors.red,
           stream: blocBasic.userObservable,
           builder: (BuildContext context, snapShot) {
             if(snapShot.hasData ){
@@ -93,7 +109,7 @@ class BlocWidget extends StatelessWidget {
                   }
                   break;
                 default:
-                  return Text((snapShot.data as User).id);
+                  return Text("Click to call User");
               }
             }
             else{
